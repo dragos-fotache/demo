@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .httpBasic()
         .and()
         .authorizeRequests()
-        .antMatchers(HttpMethod.POST, "/home/hello")
+        .antMatchers("/home/**")
         .hasAuthority("user")
         .anyRequest()
         .denyAll()
