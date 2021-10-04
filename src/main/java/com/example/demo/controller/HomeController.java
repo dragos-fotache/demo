@@ -24,9 +24,9 @@ public class HomeController {
   private final MainService mainService;
 
   @PostMapping("hello")
-  public MyObj hello(@RequestBody @Valid MyObj o) {
+  public MyObj hello() {
 
-    return mainService.doSomething(o);
+    return mainService.doSomething();
 
   }
 

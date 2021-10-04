@@ -2,31 +2,33 @@ package com.example.demo.service;
 
 import java.util.List;
 
+import com.example.demo.client.Demo2Client;
 import com.example.demo.model.MyObj;
 import com.example.demo.model.entity.Ssd;
 import com.example.demo.repository.SsdRepository;
 import com.example.lib.Library;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
 
 @Service
 @RequiredArgsConstructor
-@Log4j2
 public class MainService {
 
   private final Library lib;
 
   private final SsdRepository ssdRepository;
 
-  public MyObj doSomething(MyObj o) {
+  private final Demo2Client client;
+
+  public MyObj doSomething() {
 
     lib.calculateStuff();
 
-    return MyObj.builder().field1("1111").field2("2222").field3("3333").build();
+    String s = client.info();
+
+    return MyObj.builder().field1("1111").field2("2222").field3(s).build();
   }
 
   public List<Ssd> findAllSsds() {

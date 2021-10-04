@@ -8,7 +8,10 @@ spring:
         hibernate:
             ddl-auto: none
     datasource:
-        url: jdbc:mysql://localhost:3306/demo
+        url: jdbc:mysql://${DEMO_DB_URL:localhost}:3306/demo
         username: dragos
         password: 1234
         driver-class-name: com.mysql.jdbc.Driver
+client:
+    demo2:
+        url: ${DEMO2_URL:http://localhost:8181}
